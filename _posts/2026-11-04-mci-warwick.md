@@ -5,7 +5,7 @@ tagline: identity guidelines
 status: ''
 highlight: true
 highlight_order: 2
-cover: ''
+cover: /images/uploads/mcifablogo4.webp
 gallery: []
 media: []
 ---
