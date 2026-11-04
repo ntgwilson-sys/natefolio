@@ -11,6 +11,18 @@ display_url: https://natekidd.com
 media_folder: images/uploads
 public_folder: /images/uploads
 
+# shrinks photos when you add them, so big renders and phone pics upload fine
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
 slug:
   encoding: ascii
   clean_accents: true
