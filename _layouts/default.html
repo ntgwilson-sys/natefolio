@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body class="is-{{ page.layout | default: 'page' }}">
+
+{% include top.html blurb=page.show_blurb %}
+
+{{ content }}
+
+{% include bottom.html %}
+
+</body>
+</html>

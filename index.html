@@ -1,0 +1,17 @@
+---
+layout: default
+show_blurb: true
+---
+{% comment %}
+  highlights: any post ticked "highlight" in the admin panel, in the order you set.
+  if nothing is ticked, the five newest posts show instead.
+{% endcomment %}
+{% assign highlights = site.posts | where: "highlight", true | sort: "highlight_order" %}
+{% if highlights.size == 0 %}{% assign highlights = site.posts %}{% endif %}
+
+<div class="work">
+{% for post in highlights limit:5 %}
+  {% assign tl = post.tagline | default: "" | strip %}{% assign st = post.status | default: "" | strip %}
+  <p><a href="{{ post.url | relative_url }}"><sup>0{{ forloop.index }}</sup>{{ post.title }}</a>{% if tl != "" or st != "" %}<br>{{ tl }}{% if tl != "" and st != "" %}. {% endif %}{{ st }}{% endif %}</p>
+{% endfor %}
+</div>

@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% assign has_cover = false %}{% if page.cover and page.cover != "" %}{% assign has_cover = true %}{% endif %}
+{% assign n = page.gallery.size | plus: page.media.size %}{% if has_cover %}{% assign n = n | plus: 1 %}{% endif %}
+<article class="post{% if n == 0 %} no-board{% endif %}">
+  <div class="text">
+    <p class="head">
+      <a href="{{ '/' | relative_url }}">(back)</a><br><br>
+      {{ page.title }}<br>
+      {% if page.tagline and page.tagline != "" %}{{ page.tagline }}<br>{% endif %}
+      {% if page.status and page.status != "" %}{{ page.status }}<br>{% endif %}
+      {{ page.date | date: "%-d.%-m.%y" }}
+    </p>
+    <div class="copy">
+      {{ content }}
+    </div>
+  </div>
+
+  {% if n > 0 %}
+  <div class="board"><div class="pins">
+    {% if has_cover %}{% include tile-image.html src=page.cover alt=page.title %}{% endif %}
+    {% for img in page.gallery %}{% if img != "" %}{% include tile-image.html src=img alt=page.title %}{% endif %}{% endfor %}
+    {% for m in page.media %}{% include media.html m=m %}{% endfor %}
+  </div></div>
+  <script src="{{ '/assets/player.js' | relative_url }}" defer></script>
+  {% endif %}
+</article>

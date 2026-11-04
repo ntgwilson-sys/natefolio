@@ -1,0 +1,140 @@
+# admin panel settings.
+# the repo the admin panel saves to.
+backend:
+  name: github
+  repo: ntgwilson-sys/natefolio
+  branch: main
+
+site_url: https://natekidd.com
+display_url: https://natekidd.com
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+# shrinks photos when you add them, so big renders and phone pics upload fine
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 26214400
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2400
+          height: 2400
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: work
+    label_singular: post
+    description: everything on the site. tick "highlight" to put a post on the homepage.
+    folder: _posts
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date | date('DD.MM.YY')}}){{highlight | ternary(' ★ highlight', '')}}"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: highlights
+        field: highlight
+        pattern: true
+    fields:
+      - label: title
+        name: title
+        widget: string
+      - label: date
+        name: date
+        widget: datetime
+      - label: one line under the title
+        name: tagline
+        widget: string
+        required: false
+        hint: e.g. album concept, art direction, diy campaign
+      - label: status
+        name: status
+        widget: string
+        required: false
+        hint: e.g. in progress. leave empty if it's finished
+      - label: show as a highlight on the homepage
+        name: highlight
+        widget: boolean
+        default: false
+      - label: highlight position
+        name: highlight_order
+        widget: number
+        value_type: int
+        min: 1
+        max: 5
+        default: 1
+        required: false
+        hint: 1 shows first. only the top 5 highlights go on the homepage
+      - label: cover image
+        name: cover
+        widget: image
+        required: false
+      - label: more images
+        name: gallery
+        widget: list
+        required: false
+        field:
+          label: image
+          name: image
+          widget: image
+      - label: files and media
+        name: media
+        widget: list
+        required: false
+        label_singular: item
+        hint: mp3s and wavs get a player, mp4s get a video player, pdfs and anything else get a link. for long videos use a youtube or vimeo link
+        types:
+          - label: upload a file
+            name: file
+            widget: object
+            summary: "{{label}}"
+            fields:
+              - { label: name, name: label, widget: string, required: false, hint: "e.g. brand guidelines or track 3 demo" }
+              - { label: file, name: file, widget: file, hint: "anything up to 25mb" }
+          - label: link or embed
+            name: embed
+            widget: object
+            summary: "{{label}}"
+            fields:
+              - { label: name, name: label, widget: string, required: false }
+              - { label: link, name: link, widget: string, required: false, hint: "a youtube, vimeo or soundcloud link turns into a player. any other link shows as a link" }
+              - { label: or paste an embed code, name: code, widget: text, required: false, hint: "for bandcamp, spotify and the like. copy it from their share then embed option" }
+      - label: write up
+        name: body
+        widget: markdown
+        required: false
+
+  - name: settings
+    label: site details
+    files:
+      - name: about
+        label: homepage text and links
+        file: _data/about.yml
+        fields:
+          - { label: name, name: name, widget: string }
+          - { label: instagram handle (no @), name: instagram, widget: string }
+          - { label: blurb under your name, name: blurb, widget: text }
+          - label: titles
+            name: roles
+            widget: list
+            field: { label: title, name: title, widget: string }
+          - { label: bottom left text, name: location, widget: text }
+          - { label: email, name: email, widget: string }
+          - label: links
+            name: links
+            widget: list
+            summary: "{{verb}} ({{platform}})"
+            fields:
+              - { label: words before, name: verb, widget: string, hint: e.g. listen on }
+              - { label: platform, name: platform, widget: string, hint: e.g. soundcloud }
+              - { label: link, name: url, widget: string }

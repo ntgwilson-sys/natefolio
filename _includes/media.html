@@ -1,0 +1,40 @@
+{% comment %}
+  one item from a post's "files and media" list, as a tile on the board.
+  the <template> inside each tile is what opens up big when you click it.
+{% endcomment %}
+{% assign m = include.m %}
+{% assign nm = m.label | default: "" %}
+{% if m.type == "embed" %}
+  {% assign url = m.link | default: "" | strip %}
+  {% assign code = m.code | default: "" | strip %}
+  {% if code != "" %}
+    <a class="tile card" href="{{ url | default: '#' }}" data-kind="embed"><span class="kind">listen</span><span class="nm">{{ nm }}</span><span class="act">(open)</span><template><p class="label">{{ nm }}</p><div class="code">{{ code }}</div></template></a>
+  {% elsif url contains "youtu" %}
+    {% if url contains "youtu.be/" %}{% assign id = url | split: "youtu.be/" | last | split: "?" | first %}
+    {% elsif url contains "/shorts/" %}{% assign id = url | split: "/shorts/" | last | split: "?" | first %}
+    {% else %}{% assign id = url | split: "v=" | last | split: "&" | first %}{% endif %}
+    <a class="tile tile-thumb" href="{{ url }}" data-kind="embed"><img src="https://i.ytimg.com/vi/{{ id }}/hqdefault.jpg" alt="{{ nm }}" loading="lazy"><span class="over">(play){% if nm != "" %} {{ nm }}{% endif %}</span><template><p class="label">{{ nm }}</p><div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/{{ id }}?rel=0&color=white&autoplay=1" title="{{ nm | default: 'video' }}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></template></a>
+  {% elsif url contains "vimeo.com" %}
+    {% assign id = url | split: "vimeo.com/" | last | split: "?" | first | split: "/" | first %}
+    <a class="tile card wide" href="{{ url }}" data-kind="embed"><span class="kind">video</span><span class="nm">{{ nm }}</span><span class="act">(watch)</span><template><p class="label">{{ nm }}</p><div class="frame"><iframe src="https://player.vimeo.com/video/{{ id }}?color=ffffff&title=0&byline=0&portrait=0&dnt=1&autoplay=1" title="{{ nm | default: 'video' }}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></template></a>
+  {% elsif url contains "soundcloud.com" %}
+    <a class="tile card" href="{{ url }}" data-kind="embed"><span class="kind">listen</span><span class="nm">{{ nm }}</span><span class="act">(listen)</span><template><p class="label">{{ nm }}</p><iframe class="sc" src="https://w.soundcloud.com/player/?url={{ url | url_encode }}&color=%23ff1aa3&auto_play=true&visual=false&show_artwork=false&show_comments=false&show_reposts=false&show_teaser=false&hide_related=true" title="{{ nm | default: 'soundcloud' }}" allow="autoplay"></iframe></template></a>
+  {% elsif url != "" %}
+    <a class="tile card link" href="{{ url }}" target="_blank" rel="noopener" data-direct><span class="kind">link</span><span class="nm">{{ nm | default: url }}</span><span class="act">(open)</span></a>
+  {% endif %}
+{% elsif m.file and m.file != "" %}
+  {% assign ext = m.file | split: "." | last | downcase %}
+  {% assign src = m.file | relative_url %}
+  {% case ext %}
+    {% when "mp3", "wav", "m4a", "aac", "ogg", "flac" %}
+      <a class="tile card audio" href="{{ src }}" data-kind="audio"><span class="kind">audio</span><span class="nm">{{ nm }}</span><span class="act">(listen)</span><template><div class="item"><p class="label">{{ nm }}</p><audio controls preload="metadata" src="{{ src }}"></audio></div></template></a>
+    {% when "mp4", "webm", "mov", "m4v" %}
+      <a class="tile tile-video" href="{{ src }}" data-kind="video"><video muted playsinline preload="metadata" src="{{ src }}#t=0.1"></video><span class="over">(play){% if nm != "" %} {{ nm }}{% endif %}</span><template><div class="item"><p class="label">{{ nm }}</p><video controls playsinline preload="metadata" src="{{ src }}"></video></div></template></a>
+    {% when "jpg", "jpeg", "png", "gif", "webp", "avif", "svg" %}
+      <a class="tile tile-image" href="{{ src }}" data-kind="image"><img src="{{ src }}" alt="{{ nm }}" loading="lazy"><template><img src="{{ src }}" alt="{{ nm }}">{% if nm != "" %}<p class="label">{{ nm }}</p>{% endif %}</template></a>
+    {% when "pdf" %}
+      <a class="tile card pdf" href="{{ src }}" data-kind="pdf"><span class="kind">pdf</span><span class="nm">{{ nm }}</span><span class="act">(view)</span><template><iframe class="pdf" src="{{ src }}" title="{{ nm | default: 'pdf' }}"></iframe></template></a>
+    {% else %}
+      <a class="tile card link" href="{{ src }}" download data-direct><span class="kind">{{ ext }}</span><span class="nm">{{ nm | default: ext }}</span><span class="act">(download)</span></a>
+  {% endcase %}
+{% endif %}
