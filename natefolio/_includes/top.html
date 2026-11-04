@@ -1,0 +1,6 @@
+{% assign me = site.data.about %}
+<input type="checkbox" id="mode">
+<label class="switch" for="mode"><span class="on">pink</span><span class="off">white</span><span class="track"><span class="knob"></span></span></label>
+
+<p class="name"><a href="{{ '/' | relative_url }}">{{ me.name }}</a> <a href="https://instagram.com/{{ me.instagram }}">@{{ me.instagram }}</a>{% if include.blurb %}<br><br><span class="blurb">{{ me.blurb }}</span>{% endif %}</p>
+<p class="what">{{ me.roles | join: "<br>" }}</p>

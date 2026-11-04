@@ -1,0 +1,4 @@
+{% assign me = site.data.about %}
+<p class="where">{{ me.location | newline_to_br }}<br><a href="{{ '/work/' | relative_url }}">all work ({{ site.posts.size }})</a></p>
+<p class="links">{% for l in me.links %}{{ l.verb }} <a href="{{ l.url }}">({{ l.platform }})</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
+<p class="mail"><a href="mailto:{{ me.email }}">{{ me.email }}</a><br><a href="{{ '/admin/' | relative_url }}" rel="nofollow">(admin)</a></p>
