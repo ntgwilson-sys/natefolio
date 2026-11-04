@@ -1,0 +1,26 @@
+# site settings. you shouldn't need to touch this much.
+title: nate
+description: art direction, music marketing, music artist
+timezone: Europe/London
+
+# leave empty if the site lives at natekidd.com.
+# if it lives at ntgwilson-sys.github.io/your-repo instead, put "/your-repo" here.
+baseurl: ""
+
+# every post lives at natekidd.com/work/post-name/
+permalink: /work/:title/
+
+# show posts straight away even if their time is a bit ahead
+future: true
+
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md

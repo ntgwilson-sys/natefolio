@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post">
+  <p class="head">
+    <a href="{{ '/' | relative_url }}">(back)</a><br><br>
+    {{ page.title }}<br>
+    {% if page.tagline %}{{ page.tagline }}<br>{% endif %}
+    {% if page.status %}{{ page.status }}<br>{% endif %}
+    {{ page.date | date: "%-d.%-m.%y" }}
+  </p>
+
+  <div class="copy">{{ content }}</div>
+
+  {% if page.cover or page.gallery %}
+  <div class="gallery">
+    {% if page.cover %}<img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">{% endif %}
+    {% for img in page.gallery %}<img src="{{ img | relative_url }}" alt="{{ page.title }}" loading="lazy">{% endfor %}
+  </div>
+  {% endif %}
+</article>

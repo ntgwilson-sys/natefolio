@@ -1,0 +1,10 @@
+---
+layout: default
+title: all work
+permalink: /work/
+---
+<div class="work">
+{% for post in site.posts %}
+  <p><a href="{{ post.url | relative_url }}"><sup>{{ post.date | date: "%m.%y" }}</sup>{{ post.title }}</a>{% if post.tagline %}<br>{{ post.tagline }}{% endif %}</p>
+{% endfor %}
+</div>
