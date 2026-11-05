@@ -5,12 +5,16 @@ tagline: exploring sound and emotion
 status: ''
 highlight: true
 highlight_order: 4
-cover: ''
-gallery: []
+cover: /images/uploads/ericfish.webp
+gallery:
+  - /images/uploads/img_3647.webp
 media:
   - type: file
     label: the performance
     file: /images/uploads/video-75548.mp4
+  - type: file
+    label: jellyfish music!!
+    file: /images/uploads/medialab4.mp3
 ---
 
 first off, i would like a massive credit to eric astle, anna mead, poppy clausen and cheyne yuan. what we made in such little time was honestly mind blowing.
