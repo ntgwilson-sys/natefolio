@@ -2,7 +2,7 @@
 title: Rootes Music Festival Concept
 date: 2026-04-16T15:30:00
 tagline: Poster Design
-status: Concept
+status: in progress...
 highlight: true
 highlight_order: 3
 cover: /images/uploads/rootesposter.webp
