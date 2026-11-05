@@ -11,14 +11,14 @@ location: |-
 email: nate@natekidd.com
 links:
   - verb: listen on
-    platform: soundcloud
-    url: https://soundcloud.com/
+    platform: spotify
+    url: https://open.spotify.com/artist/5YuQX41005vgMv5ZVUFvIg?si=DBdKPYUoRMO5hWxlzhIaog
   - verb: listen on
-    platform: bandcamp
-    url: https://bandcamp.com/
-  - verb: watch on
-    platform: tiktok
-    url: https://tiktok.com/
+    platform: apple music
+    url: https://music.apple.com/gb/artist/nate-kidd/1816873323
+  - verb: listen on
+    platform: soundcloud
+    url: https://on.soundcloud.com/gaHiPkCm6wEpeMbdK4
   - verb: hire me on
     platform: linkedin
-    url: https://linkedin.com/
+    url: https://www.linkedin.com/in/nate-grange-wilson-b9965a381/
