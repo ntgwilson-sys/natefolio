@@ -33,7 +33,13 @@ eric: so they’re basically learning to live with each other.
 
 me: yeah, which is actually really romantic when you think about it.
 
-i then drew some squiggles on paper to show how the jellyfish could move in his drawings. i think he knew what i meant, he just wanted to watch me scribble.w
+i then drew some squiggles on paper to show how the jellyfish could move in his drawings. i think he knew what i meant, he just wanted to watch me scribble.
+
+that idea stuck with both of us. jellyfish don’t really have a way of talking to each other, they can’t see properly and they can’t make sounds. all they can do is move. but every time one of them moves, it sends ripples through the water, and those ripples push the other one about. so if two jellyfish want to stay close, they have to keep adjusting to each other. one moves, the other feels it and shifts, and that shift gets felt back. in a way, the water is the conversation.
+
+we started thinking that’s basically what being in love is. not big dramatic gestures, just two people constantly reacting to each other, giving a bit of space here, moving a bit closer there, until they’re going in the same direction. neither of them is in charge. they just learn each other’s rhythm.
+
+that ended up shaping the sound too. the sine waves in each jellyfish’s voice rise and fall like ripples, and because each one sits on its own side of the stereo, you can hear one call and the other respond. when the speakers move around the room, the sound moves with them, so the audience is kind of sat in the water, feeling the ripples pass between the two of them. and when they finally meet in the middle and collapse together, it’s because they don’t need to adjust anymore. they’ve found the same rhythm.
 
 on the day, anna and poppy had made two great bin bag coverings for the speakers. i hooked my laptop up and they already knew the movements they needed to do. cheyne and eric’s drawings came together as a comic, telling the story of the two jellyfish getting separated, calling out to find each other, then coming back together.
 
