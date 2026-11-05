@@ -29,7 +29,7 @@ eric and i live together, so we sat down and worked out how to connect his visua
 
 me: so if you think about it, they can only move, but their ripples push the other one about, so to swim straight they need to adjust to each other?
 
-eric: so they’re basically learning to live with each other.
+eric: they learn to live with each other?
 
 me: yeah, which is actually really romantic when you think about it.
 
