@@ -1,6 +1,6 @@
 ---
 title: MCI Warwick Branding
-date: 2026-11-04 10:00:00 +0000
+date: 2026-06-02T12:00:00
 tagline: identity guidelines
 status: ''
 highlight: true
